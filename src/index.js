@@ -1,4 +1,6 @@
-import _ from "lodash";
+import {
+  Analytics
+} from 'aws-amplify';
 
 const someId = _.padStart(10, 6, "0");
 
@@ -12,3 +14,9 @@ const html = `
       `;
 
 console.log(html);
+Analytics.record({
+  name: 'createProject',
+  attributes: {
+    name: 'name'
+  }
+});
